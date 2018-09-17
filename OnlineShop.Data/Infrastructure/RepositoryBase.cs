@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace OnlineShop.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T : class
+    public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
         OnlineShopDbContext dataContext;
@@ -25,6 +25,12 @@ namespace OnlineShop.Data.Infrastructure
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
         #endregion
+
+        protected RepositoryBase(IDbFactory dbFactory)
+        {
+            DbFactory = dbFactory;
+            dbSet = DbContext.Set<T>();
+        }
 
 
         #region Implements

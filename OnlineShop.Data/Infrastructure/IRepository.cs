@@ -14,7 +14,7 @@ namespace OnlineShop.Data.Infrastructure
 
         void DeleteMulti(Expression<Func<T, bool>> where);
 
-        T GetSingeById(int id);
+        T GetSingleById(int id);
 
         T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null);
 
