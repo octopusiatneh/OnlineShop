@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Model.Abstract;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using OnlineShop.Model.Abstract;
-using System.Xml.Linq;
 
 namespace OnlineShop.Model.Models
 {
@@ -31,7 +25,7 @@ namespace OnlineShop.Model.Models
         [MaxLength(256)]
         public string Image { get; set; }
 
-        [Column(TypeName ="xml")]
+        [Column(TypeName = "xml")]
         public string MoreImages { get; set; }
 
         public decimal Price { get; set; }
@@ -42,6 +36,7 @@ namespace OnlineShop.Model.Models
 
         [MaxLength(500)]
         public string Description { get; set; }
+
         public string Content { get; set; }
 
         public bool? HomeFlag { get; set; }
