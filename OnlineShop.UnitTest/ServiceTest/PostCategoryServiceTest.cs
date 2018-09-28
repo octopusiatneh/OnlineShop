@@ -55,7 +55,7 @@ namespace OnlineShop.UnitTest.ServiceTest
 
             _mockRepository.Setup(m => m.Add(category)).Returns((PostCategory p) =>
               {
-                  p.ID = 1;
+                  p.ID = id;
                   return p;
               });
 
