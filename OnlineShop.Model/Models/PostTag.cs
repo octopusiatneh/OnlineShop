@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineShop.Model.Models
 {
     [Table("PostTags")]
-    public class PostTag
+    public class PostTagViewModel
     {
         [Key]
         [Column(Order = 1)]

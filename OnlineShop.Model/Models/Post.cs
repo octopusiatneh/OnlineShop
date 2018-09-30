@@ -40,6 +40,6 @@ namespace OnlineShop.Model.Models
         public virtual PostCategory PostCategory { get; set; }
 
         [ForeignKey("CategoryID")]
-        public virtual IEnumerable<PostTag> PostTags { get; set; }
+        public virtual IEnumerable<PostTagViewModel> PostTags { get; set; }
     }
 }
