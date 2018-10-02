@@ -1,11 +1,7 @@
 ﻿using OnlineShop.Model.Abstract;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Model.Models
 {
@@ -26,6 +22,7 @@ namespace OnlineShop.Model.Models
 
         [MaxLength(500)]
         public string Description { get; set; }
+
         public int? ParentID { get; set; }
         public int? DisplayOrder { get; set; }
         public string Image { get; set; }

@@ -1,14 +1,10 @@
-﻿using OnlineShop.Model.Models;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using OnlineShop.Model.Models;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Data
 {
-    public class OnlineShopDbContext : DbContext
+    public class OnlineShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public OnlineShopDbContext() : base("OnlineShopConnection")
         {
@@ -23,7 +19,7 @@ namespace OnlineShop.Data
         public DbSet<Page> Pages { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostCategory> PostCategorys { get; set; }
-        public DbSet<PostTag> PostTags { get; set; }
+        public DbSet<PostTagViewModel> PostTags { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductTag> ProductTags { get; set; }
@@ -32,10 +28,17 @@ namespace OnlineShop.Data
         public DbSet<SystemConfig> SystemConfigs { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
+        public DbSet<Error> Errors { get; set; }
+
+        public static OnlineShopDbContext Create()
+        {
+            return new OnlineShopDbContext();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i =>new { i.UserId, i.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }

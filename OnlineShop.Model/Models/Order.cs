@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Model.Models
 {
@@ -19,7 +16,7 @@ namespace OnlineShop.Model.Models
         [MaxLength(256)]
         public string CustomerName { get; set; }
 
-         [Required]
+        [Required]
         [MaxLength(256)]
         public string CustomerAddress { get; set; }
 

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnlineShop.Data.Infrastructure
+﻿namespace OnlineShop.Data.Infrastructure
 {
-    public class DbFactory:Dispoable,IDbFactory
+    public class DbFactory : Dispoable, IDbFactory
     {
-        OnlineShopDbContext dbContext;
+        private OnlineShopDbContext dbContext;
 
         public OnlineShopDbContext Init()
         {
