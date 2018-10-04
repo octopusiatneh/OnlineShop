@@ -14,10 +14,28 @@
 </head>
 <body>
     <div ng-controller="myController">
-        {{message}}
-        <br/>
-        10+20={{10+20}}
 
+        {{message}}
+        <br />
+        10+20={{10+20}}
+    </div>
+    ********* Scope long nhau   ********************
+
+    <div ng-controller="schoolController">
+        <div ng-controller="studentController">
+            Student: {{message}}
+        </div>
+        <div ng-controller="teacherController">
+            School: {{message}}
+        </div>
+        From School : {{message}}
+    </div>
+    ************* rootScope ************
+    <div ng-controller="houseController">
+        {{message}}
+    </div>
+    <div ng-controller="peopleController">
+        {{message}}
     </div>
 </body>
 </html>
