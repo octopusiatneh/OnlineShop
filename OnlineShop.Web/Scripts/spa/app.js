@@ -1,42 +1,29 @@
 ﻿/// <reference path="../plugins/angular/angular.js" />
 
-//how to use module
-
 var myApp = angular.module('myModule', []);
 
-//how to use Controller & Scope
-
-myApp.controller("myController", myController);
 myApp.controller("schoolController", schoolController);
-myApp.controller("studentController", studentController);
-myApp.controller("teacherController", teacherController);
-myApp.controller("houseController", houseController);
-myApp.controller("peopleController", peopleController);
-//declare
+myApp.service('Validator', Validator);
 
-function myController($scope) {
-    $scope.message = "Math first grade";
-} 
+schoolController.$inject = ['$scope', 'Validator'];
 
-//Scope lồng nhau
-function schoolController($scope) {
-    $scope.message = "Announcement from school";
-} 
-
-function studentController($scope) {
-    $scope.message = "This is message from student";
-} 
-function teacherController($scope) {
-    $scope.message = "This is message from teacher";
-} 
-//rootScope
-function houseController($rootScope,$scope) {
-    $rootScope.message = "From house";
+function schoolController($scope, Validator) {
+    $scope.checkNumber = function(){
+        $scope.message = Validator.checkNumber($scope.num);
+    }
+   
 }
-
-function peopleController($scope) {
-   // $scope.message = "This is message from people";
-} 
-
+function Validator($window) {
+    return {
+        checkNumber: checkNumber
+    }
+    function checkNumber(input) {
+        if (input % 2 == 0)
+            return 'this is even';
+        else {
+            return 'this is odd';
+        }
+            }
+}
 
 
