@@ -15,9 +15,23 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Danh mục sản phẩm</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+            </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="keyword" placeholder="Từ khóa">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="search()">Tìm Kiếm!</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
             <table class="table table-bordered">
                 <tbody>
                     <tr>
@@ -42,7 +56,13 @@
                             <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
+
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">Tổng số bản ghi:{{totalCount}}</td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
         <!-- /.box-body -->
