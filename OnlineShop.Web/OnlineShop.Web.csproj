@@ -223,6 +223,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Core\ApiControllerBase.cs" />
+    <Compile Include="Infrastructure\Core\PaginationSet.cs" />
     <Compile Include="Infrastructure\Extensions\EntityExtentions.cs" />
     <Compile Include="Mapping\AutoMapperConfiguration.cs" />
     <Compile Include="Models\PostCategoryViewModel.cs" />
@@ -248,6 +249,8 @@
     <Content Include="app\components\product_categories\productCategory.module.js" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
+    <Content Include="app\shared\directives\pagerDirective.html" />
+    <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filter\statusFilter.js" />
     <Content Include="app\shared\modules\onlineshop.common.js" />
     <Content Include="app\shared\services\apiService.js" />
@@ -7083,6 +7086,17 @@
     <Content Include="Assets\admin\libs\select2\src\scss\_single.scss" />
     <Content Include="Assets\admin\css\adminlte.css.map" />
     <Content Include="Assets\admin\css\adminlte.min.css.map" />
+    <Content Include="fonts\helveticaneue.ttf" />
+    <Content Include="fonts\helveticaneuebold.ttf" />
+    <Content Include="fonts\helveticaneuebolditalic.ttf" />
+    <Content Include="fonts\helveticaneuecondensedblack.ttf" />
+    <Content Include="fonts\helveticaneuecondensedbold.ttf" />
+    <Content Include="fonts\helveticaneueitalic.ttf" />
+    <Content Include="fonts\helveticaneuelight.ttf" />
+    <Content Include="fonts\helveticaneuelightitalic.ttf" />
+    <Content Include="fonts\helveticaneuemedium.ttf" />
+    <Content Include="fonts\helveticaneueultralight.ttf" />
+    <Content Include="fonts\helveticaneueultralightitalic.ttf" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

@@ -4,4 +4,4 @@
     function productListController() {
 
     }
-})(angular.module('onlineshop.product_categories'));
+})(angular.module('onlineshop.products'));
