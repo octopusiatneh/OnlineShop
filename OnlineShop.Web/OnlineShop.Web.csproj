@@ -248,6 +248,7 @@
     <Content Include="app\components\product_categories\productCategory.module.js" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
+    <Content Include="app\shared\filter\statusFilter.js" />
     <Content Include="app\shared\modules\onlineshop.common.js" />
     <Content Include="app\shared\services\apiService.js" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
@@ -7084,6 +7085,7 @@
     <Content Include="Assets\admin\css\adminlte.min.css.map" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineShop.Common\OnlineShop.Common.csproj">
