@@ -51,5 +51,26 @@ namespace OnlineShop.Web.Infrastructure.Extensions
             post.Status = postVm.Status;
 
         }
+
+        public static void UpdateProductCategory(this ProductCategory prodcutCategory, ProductCategoryViewModel productCategoryVm)
+        {
+            prodcutCategory.ID = productCategoryVm.ID;
+            prodcutCategory.Name = productCategoryVm.Name;
+            prodcutCategory.Description = productCategoryVm.Description;
+            prodcutCategory.Alias = productCategoryVm.Alias;
+            prodcutCategory.ParentID = productCategoryVm.ParentID;
+            prodcutCategory.DisplayOrder = productCategoryVm.DisplayOrder;
+            prodcutCategory.Image = productCategoryVm.Image;
+            prodcutCategory.HomeFlag = productCategoryVm.HomeFlag;
+
+            prodcutCategory.CreatedDate = productCategoryVm.CreatedDate;
+            prodcutCategory.CreatedBy = productCategoryVm.CreatedBy;
+            prodcutCategory.UpdatedDate = productCategoryVm.UpdatedDate;
+            prodcutCategory.UpdatedBy = productCategoryVm.UpdatedBy;
+            prodcutCategory.MetaKeyword = productCategoryVm.MetaKeyword;
+            prodcutCategory.MetaDescription = productCategoryVm.MetaDescription;
+            prodcutCategory.Status = productCategoryVm.Status;
+
+        }
     }
 }

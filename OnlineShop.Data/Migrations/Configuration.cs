@@ -17,8 +17,9 @@
 
         protected override void Seed(OnlineShop.Data.OnlineShopDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
             CreateProductCategorySample(context);
+            //  This method will be called after migrating to the latest version.
+
             //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new OnlineShopDbContext()));
 
             //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new OnlineShopDbContext()));
