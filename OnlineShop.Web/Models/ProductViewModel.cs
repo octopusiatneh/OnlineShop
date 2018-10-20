@@ -14,7 +14,7 @@ namespace OnlineShop.Web.Models
         public string Name { get; set; }
 
 
-        public string Alisas { get; set; }
+        public string Alias { get; set; }
 
 
         public int CategoryID { get; set; }

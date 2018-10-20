@@ -17,7 +17,7 @@ namespace OnlineShop.Model.Models
 
         [Required]
         [MaxLength(256)]
-        public string Alisas { get; set; }
+        public string Alias { get; set; }
 
         [Required]
         public int CategoryID { get; set; }
