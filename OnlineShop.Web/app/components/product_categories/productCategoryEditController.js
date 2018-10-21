@@ -1,7 +1,7 @@
 ﻿(function (app) {
     app.controller('productCategoryEditController', productCategoryEditController);
 
-    productCategoryEditController.$inject = ['apiService', '$scope', 'notificationService', '$state','$stateParams','commonService'];
+    productCategoryEditController.$inject = ['apiService', '$scope', 'notificationService', '$state', '$stateParams', 'commonService'];
 
     function productCategoryEditController(apiService, $scope, notificationService, $state, $stateParams, commonService) {
         $scope.productCategory = {
@@ -20,11 +20,11 @@
         }
 
         function loadProductCategoryDetail() {
-            apiService.get('api/productcategory/getbyid/' + $stateParams.id,null, function (result) {
+            apiService.get('api/productcategory/getbyid/' + $stateParams.id, null, function (result) {
                 $scope.productCategory = result.data;
             }, function (error) {
                 notificationService.displayError(error.data);
-                });
+            });
 
         }
 

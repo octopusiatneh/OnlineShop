@@ -1,4 +1,5 @@
-﻿using OnlineShop.Data.Infrastructure;
+﻿using OnlineShop.Common;
+using OnlineShop.Data.Infrastructure;
 using OnlineShop.Data.Repositories;
 using OnlineShop.Model.Models;
 using System;
@@ -45,7 +46,30 @@ namespace OnlineShop.Service
 
         public Product Add(Product Product)
         {
-            return _productRepository.Add(Product);
+            var product = _productRepository.Add(Product);
+            _unitOfWork.Commit();
+            if (!string.IsNullOrEmpty(Product.Tags))
+            {
+                string[] tags = Product.Tags.Split(',');
+                for (var i = 0; i < tags.Length; i++)
+                {
+                    var tagId = StringHelper.ToUnsignString(tags[i]);
+                    if (_tagRepository.Count(x => x.ID == tagId) == 0)
+                    {
+                        Tag tag = new Tag();
+                        tag.ID = tagId;
+                        tag.Name = tags[i];
+                        tag.Type = CommonConstants.ProductTag;
+                        _tagRepository.Add(tag);
+                    }
+
+                    ProductTag productTag = new ProductTag();
+                    productTag.ProductID = Product.ID;
+                    productTag.TagID = tagId;
+                    _productTagRepository.Add(productTag);
+                }
+            }
+            return product;
         }
 
         public Product Delete(int id)
@@ -79,6 +103,28 @@ namespace OnlineShop.Service
         public void Update(Product Product)
         {
             _productRepository.Update(Product);
+            if (!string.IsNullOrEmpty(Product.Tags))
+            {
+                string[] tags = Product.Tags.Split(',');
+                for (var i = 0; i < tags.Length; i++)
+                {
+                    var tagId = StringHelper.ToUnsignString(tags[i]);
+                    if (_tagRepository.Count(x => x.ID == tagId) == 0)
+                    {
+                        Tag tag = new Tag();
+                        tag.ID = tagId;
+                        tag.Name = tags[i];
+                        tag.Type = CommonConstants.ProductTag;
+                        _tagRepository.Add(tag);
+                    }
+                    _productTagRepository.DeleteMulti(x => x.ProductID == Product.ID);
+                    ProductTag productTag = new ProductTag();
+                    productTag.ProductID = Product.ID;
+                    productTag.TagID = tagId;
+                    _productTagRepository.Add(productTag);
+                }
+
+            }
         }
     }
 }

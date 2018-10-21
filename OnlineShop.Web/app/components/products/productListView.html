@@ -60,7 +60,7 @@
                                                  'badge bg-green':item.Status== true}">{{item.Status | statusFilter}}</span>
                         </td>
                         <td>
-                            <button class="btn btn-primary" ui-sref="edit_product({id:item.ID})"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-primary" ui-sref="product_edit({id:item.ID})"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-danger" ng-click="deleteProduct(item.ID)"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
