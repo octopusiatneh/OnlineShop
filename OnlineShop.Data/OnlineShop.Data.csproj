@@ -60,10 +60,6 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201809170936015_InitialDB.cs" />
-    <Compile Include="Migrations\201809170936015_InitialDB.Designer.cs">
-      <DependentUpon>201809170936015_InitialDB.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201809280329108_AddErrorTable.cs" />
     <Compile Include="Migrations\201809280329108_AddErrorTable.Designer.cs">
       <DependentUpon>201809280329108_AddErrorTable.cs</DependentUpon>
@@ -83,6 +79,10 @@
     <Compile Include="Migrations\201810210320318_AddTagField.cs" />
     <Compile Include="Migrations\201810210320318_AddTagField.Designer.cs">
       <DependentUpon>201810210320318_AddTagField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810211200381_InitialDB.cs" />
+    <Compile Include="Migrations\201810211200381_InitialDB.Designer.cs">
+      <DependentUpon>201810211200381_InitialDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
@@ -123,9 +123,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809170936015_InitialDB.resx">
-      <DependentUpon>201809170936015_InitialDB.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809280329108_AddErrorTable.resx">
       <DependentUpon>201809280329108_AddErrorTable.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810210320318_AddTagField.resx">
       <DependentUpon>201810210320318_AddTagField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810211200381_InitialDB.resx">
+      <DependentUpon>201810211200381_InitialDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
