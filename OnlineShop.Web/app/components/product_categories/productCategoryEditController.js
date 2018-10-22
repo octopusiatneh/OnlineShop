@@ -37,6 +37,7 @@
                     notificationService.displayError('Cập nhật không thành công.');
                 });
         }
+
         function loadParentCategory() {
             apiService.get('api/productcategory/getallparents', null, function (result) {
                 $scope.parentCategories = result.data;

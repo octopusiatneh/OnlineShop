@@ -56,6 +56,7 @@ namespace OnlineShop.Web.Api
 
         [Route("getallparents")]
         [HttpGet]
+        [AllowAnonymous]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
@@ -72,7 +73,7 @@ namespace OnlineShop.Web.Api
         }
         [Route("getbyid/{id:int}")]
         [HttpGet]
-       
+       [AllowAnonymous]
         public HttpResponseMessage GetById(HttpRequestMessage request,int id)
         {
             return CreateHttpResponse(request, () =>
