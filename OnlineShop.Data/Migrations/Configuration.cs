@@ -17,44 +17,45 @@
 
         protected override void Seed(OnlineShop.Data.OnlineShopDbContext context)
         {
-            CreateProductCategorySample(context);
+            //CreateProductCategorySample(context);
             //  This method will be called after migrating to the latest version.
 
-            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new OnlineShopDbContext()));
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new OnlineShopDbContext()));
 
-            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new OnlineShopDbContext()));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new OnlineShopDbContext()));
 
-            //var user = new ApplicationUser()
-            //{
-            //    UserName = "quang",
-            //    Email = "ntnq1910@gmail.com",
-            //    EmailConfirmed = true,
-            //    BirthDay = DateTime.Now,
-            //    FullName = "Nguyễn Trương Ngọc Quang"
+            var user = new ApplicationUser()
+            {
+                UserName = "quang",
+                Email = "ntnq1910@gmail.com",
+                EmailConfirmed = true,
+                BirthDay = DateTime.Now,
+                FullName = "Nguyễn Trương Ngọc Quang"
 
-            //};
+            };
 
-            //var user2 = new ApplicationUser()
-            //{
-            //    UserName = "ngoc",
-            //    Email = "caulaai1998@gmail.com",
-            //    EmailConfirmed = true,
-            //    BirthDay = DateTime.Now,
-            //    FullName = "Ngọc Gà"
+            var user2 = new ApplicationUser()
+            {
+                UserName = "ngoc",
+                Email = "caulaai1998@gmail.com",
+                EmailConfirmed = true,
+                BirthDay = DateTime.Now,
+                FullName = "Ngọc Gà"
 
-            //};
+            };
 
-            //manager.Create(user, "123654$");
+            manager.Create(user, "123654$");
+            manager.Create(user2, "123654$");
 
-            //if (!roleManager.Roles.Any())
-            //{
-            //    roleManager.Create(new IdentityRole { Name = "Admin" });
-            //    roleManager.Create(new IdentityRole { Name = "User" });
-            //}
+            if (!roleManager.Roles.Any())
+            {
+                roleManager.Create(new IdentityRole { Name = "Admin" });
+                roleManager.Create(new IdentityRole { Name = "User" });
+            }
 
-            //var adminUser = manager.FindByEmail("ntnq1910@gmail.com");
+            var adminUser = manager.FindByEmail("ntnq1910@gmail.com");
 
-            //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
         }
         private void CreateProductCategorySample(OnlineShop.Data.OnlineShopDbContext context)
         {

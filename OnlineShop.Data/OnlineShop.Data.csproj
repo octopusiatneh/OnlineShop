@@ -72,17 +72,9 @@
     <Compile Include="Migrations\201810020834544_ChangeKey.Designer.cs">
       <DependentUpon>201810020834544_ChangeKey.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810201412306_Modify.cs" />
-    <Compile Include="Migrations\201810201412306_Modify.Designer.cs">
-      <DependentUpon>201810201412306_Modify.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201810210320318_AddTagField.cs" />
     <Compile Include="Migrations\201810210320318_AddTagField.Designer.cs">
       <DependentUpon>201810210320318_AddTagField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810211200381_InitialDB.cs" />
-    <Compile Include="Migrations\201810211200381_InitialDB.Designer.cs">
-      <DependentUpon>201810211200381_InitialDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
@@ -132,14 +124,8 @@
     <EmbeddedResource Include="Migrations\201810020834544_ChangeKey.resx">
       <DependentUpon>201810020834544_ChangeKey.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810201412306_Modify.resx">
-      <DependentUpon>201810201412306_Modify.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810210320318_AddTagField.resx">
       <DependentUpon>201810210320318_AddTagField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810211200381_InitialDB.resx">
-      <DependentUpon>201810211200381_InitialDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

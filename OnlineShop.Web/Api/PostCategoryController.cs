@@ -9,9 +9,10 @@ using OnlineShop.Web.Infrastructure.Core;
 using OnlineShop.Web.Infrastructure.Extensions;
 using OnlineShop.Web.Models;
 
-namespace TeduShop.Web.Api
+namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/postcategory")]
+    [Authorize]
     public class PostCategoryController : ApiControllerBase
     {
         IPostCategoryService _postCategoryService;
