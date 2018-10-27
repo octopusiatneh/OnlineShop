@@ -232,12 +232,14 @@
     <Compile Include="Infrastructure\Core\PaginationSet.cs" />
     <Compile Include="Infrastructure\Extensions\EntityExtentions.cs" />
     <Compile Include="Mapping\AutoMapperConfiguration.cs" />
+    <Compile Include="Models\FooterCategoryViewModel.cs" />
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\ProductCategoryViewModel.cs" />
     <Compile Include="Models\ProductTagViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -8288,7 +8290,6 @@
     <Content Include="Assets\client\fonts\Poppins\Poppins-LightItalic.ttf" />
     <Content Include="Assets\client\fonts\Poppins\Poppins-Medium.ttf" />
     <Content Include="Assets\client\fonts\Poppins\Poppins-MediumItalic.ttf" />
-    <Content Include="Assets\client\fonts\Poppins\Poppins-Regular.ttf" />
     <Content Include="Assets\client\fonts\Poppins\Poppins-SemiBold.ttf" />
     <Content Include="Assets\client\fonts\Poppins\Poppins-SemiBoldItalic.ttf" />
     <Content Include="Assets\client\fonts\Poppins\Poppins-Thin.ttf" />
@@ -8309,6 +8310,7 @@
     <Content Include="Assets\client\vendor\slick\slick-theme.scss" />
     <Content Include="Assets\client\vendor\slick\slick.less" />
     <Content Include="Assets\client\vendor\slick\slick.scss" />
+    <Content Include="Assets\client\fonts\Poppins\Poppins-Regular.ttf" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
