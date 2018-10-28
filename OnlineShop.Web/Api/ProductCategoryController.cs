@@ -57,7 +57,6 @@ namespace OnlineShop.Web.Api
 
         [Route("getallparents")]
         [HttpGet]
-        [AllowAnonymous]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
@@ -74,7 +73,6 @@ namespace OnlineShop.Web.Api
         }
         [Route("getbyid/{id:int}")]
         [HttpGet]
-       [AllowAnonymous]
         public HttpResponseMessage GetById(HttpRequestMessage request,int id)
         {
             return CreateHttpResponse(request, () =>
@@ -92,7 +90,6 @@ namespace OnlineShop.Web.Api
 
         [Route("create")]
         [HttpPost]
-        [AllowAnonymous]
         public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
             return CreateHttpResponse(request, () =>
@@ -122,7 +119,6 @@ namespace OnlineShop.Web.Api
 
         [Route("update")]
         [HttpPut]
-        [AllowAnonymous]
         public HttpResponseMessage Update(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
             return CreateHttpResponse(request, () =>
@@ -152,7 +148,6 @@ namespace OnlineShop.Web.Api
 
         [Route("delete")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -178,7 +173,6 @@ namespace OnlineShop.Web.Api
 
         [Route("deletemulti")]
         [HttpDelete]
-        [AllowAnonymous]
         public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string checkedProductCategories)
         {
             return CreateHttpResponse(request, () =>

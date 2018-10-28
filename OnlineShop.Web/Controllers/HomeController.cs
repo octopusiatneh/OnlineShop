@@ -13,10 +13,12 @@ namespace OnlineShop.Web.Controllers
     public class HomeController : Controller
     {
         IProductCategoryService _productCategoryService;
+        IProductService _productService;
         ICommonService _commonService;
 
-        public HomeController(IProductCategoryService productCategoryService, ICommonService commonService)
+        public HomeController(IProductService productService,IProductCategoryService productCategoryService, ICommonService commonService)
         {
+            _productService = productService;
             _productCategoryService = productCategoryService;
             _commonService = commonService;
         }
@@ -24,7 +26,17 @@ namespace OnlineShop.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var homeViewModel = new HomeViewModel();
+
+            var lastestProductModel = _productService.GetLastestProducts(8);
+            var hotProductModel = _productService.GetHotProducts(8);
+            var lastestProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lastestProductModel);
+            var hotProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(hotProductModel);
+
+
+            homeViewModel.LastestProduct = lastestProductViewModel;
+            homeViewModel.HotProduct = hotProductViewModel;
+            return View(homeViewModel);
         }
 
         [ChildActionOnly]
@@ -46,7 +58,11 @@ namespace OnlineShop.Web.Controllers
         [ChildActionOnly]
         public PartialViewResult Slider()
         {
-            return PartialView();
+            var slideModel = _commonService.GetSlides();
+            var slideView = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(slideModel);
+            var homeViewModel = new HomeViewModel();
+            homeViewModel.Slides = slideView;
+            return PartialView(homeViewModel);
         }
 
         [ChildActionOnly]

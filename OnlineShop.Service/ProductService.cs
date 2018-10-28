@@ -22,6 +22,12 @@ namespace OnlineShop.Service
 
         IEnumerable<Product> GetAll(string keyword);
 
+        IEnumerable<Product> GetSaleProducts(int maxProduct);
+
+        IEnumerable<Product> GetHotProducts(int maxProduct);
+
+        IEnumerable<Product> GetLastestProducts(int maxProduct);
+
         Product GetById(int id);
 
         void Save();
@@ -93,6 +99,22 @@ namespace OnlineShop.Service
         public Product GetById(int id)
         {
             return _productRepository.GetSingleById(id);
+        }
+
+        public IEnumerable<Product> GetHotProducts(int maxProduct)
+        {
+            return _productRepository.GetMulti(x => x.Status && x.HotFlag==true).OrderByDescending(x => x.CreatedDate).Take(maxProduct);
+
+        }
+
+        public IEnumerable<Product> GetLastestProducts(int maxProduct)
+        {
+            return _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(maxProduct);
+        }
+
+        public IEnumerable<Product> GetSaleProducts(int maxProduct)
+        {
+            throw new NotImplementedException();
         }
 
         public void Save()

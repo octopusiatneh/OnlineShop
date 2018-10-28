@@ -60,22 +60,6 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201809280329108_AddErrorTable.cs" />
-    <Compile Include="Migrations\201809280329108_AddErrorTable.Designer.cs">
-      <DependentUpon>201809280329108_AddErrorTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810020743007_Intergrate-AspnetIdentity.cs" />
-    <Compile Include="Migrations\201810020743007_Intergrate-AspnetIdentity.Designer.cs">
-      <DependentUpon>201810020743007_Intergrate-AspnetIdentity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810020834544_ChangeKey.cs" />
-    <Compile Include="Migrations\201810020834544_ChangeKey.Designer.cs">
-      <DependentUpon>201810020834544_ChangeKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810210320318_AddTagField.cs" />
-    <Compile Include="Migrations\201810210320318_AddTagField.Designer.cs">
-      <DependentUpon>201810210320318_AddTagField.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,20 +97,6 @@
       <Project>{5efa5071-8670-4fd9-a7d0-7bd1381d1cab}</Project>
       <Name>OnlineShop.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809280329108_AddErrorTable.resx">
-      <DependentUpon>201809280329108_AddErrorTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810020743007_Intergrate-AspnetIdentity.resx">
-      <DependentUpon>201810020743007_Intergrate-AspnetIdentity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810020834544_ChangeKey.resx">
-      <DependentUpon>201810020834544_ChangeKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810210320318_AddTagField.resx">
-      <DependentUpon>201810210320318_AddTagField.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

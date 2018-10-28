@@ -9,7 +9,7 @@
                 <ul>
                     @foreach (var category in Model)
                     {
-                        var url = "/" + category.Alias + ".pc" + category.ID + ".html";
+                        var url = "/" + category.Alias + ".pc" +"-" + category.ID + ".html";
                         <li class="p-b-10">
                             <a href="@url" class="stext-107 cl7 hov-cl1 trans-04">
                                 @category.Name
