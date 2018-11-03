@@ -37,16 +37,16 @@ namespace OnlineShop.Web.Controllers
         //    return View(productViewModel);
         //}
 
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page,int pageSize = 8,string sort="")
         {
             var shopViewModel = new ShopViewModel();
 
             var productCategoryModel = _productCategoryService.GetAll();
-            var productModel = _productService.GetAll();
+            //var productModel = _productService.GetAll();
+            var productModel = _productService.GetSortedProduct(sort);
             var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
             var productCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategoryModel);
 
-            int pageSize = 8;
             int pageNumber = (page ?? 1);
 
             shopViewModel.ProductCategories = productCategoryViewModel;

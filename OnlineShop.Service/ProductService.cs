@@ -20,6 +20,8 @@ namespace OnlineShop.Service
 
         IEnumerable<Product> GetAll();
 
+        IEnumerable<Product> GetSortedProduct(string sort);
+
         IEnumerable<Product> GetAll(string keyword);
 
         IEnumerable<Product> GetSaleProducts(int maxProduct);
@@ -103,7 +105,7 @@ namespace OnlineShop.Service
 
         public IEnumerable<Product> GetHotProducts(int maxProduct)
         {
-            return _productRepository.GetMulti(x => x.Status && x.HotFlag==true).OrderByDescending(x => x.CreatedDate).Take(maxProduct);
+            return _productRepository.GetMulti(x => x.Status && x.HotFlag == true).OrderByDescending(x => x.CreatedDate).Take(maxProduct);
 
         }
 
@@ -115,6 +117,41 @@ namespace OnlineShop.Service
         public IEnumerable<Product> GetSaleProducts(int maxProduct)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Product> GetSortedProduct(string sort)
+        {
+            var query = _productRepository.GetMulti(x => x.Status);
+            switch (sort)
+            {
+                case "moi-nhat":
+                    query = query.OrderByDescending(x => x.CreatedDate);
+                    break;
+                case "khuyen-mai":
+                    query = _productRepository.GetMulti(x => x.PromotionPrice.HasValue);
+                    break;
+                case "gia-thap-den-cao":
+                    query = query.OrderBy(x => x.Price);
+                    break;
+                case "price-0-50":
+                    query = _productRepository.GetMulti(x => x.Price >= 0 && x.Price < 50);
+                    break;
+                case "price-50-100":
+                    query = _productRepository.GetMulti(x => x.Price >= 50 && x.Price < 100);
+                    break;
+                case "price-100-150":
+                    query = _productRepository.GetMulti(x => x.Price >= 100 && x.Price < 150);
+                    break;
+                case "price-150-200":
+                    query = _productRepository.GetMulti(x => x.Price >= 150 && x.Price < 200);
+                    break;
+                case "price-200":
+                    query = _productRepository.GetMulti(x => x.Price >= 200);
+                    break;
+                default:
+                    break;
+            }
+            return query;
         }
 
         public void Save()
