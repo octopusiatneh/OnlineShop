@@ -39,7 +39,6 @@
 
     <!-- Header -->
     @{ Html.RenderAction("Header", "Home");}
-
     <!-- Sidebar -->
     <aside class="wrap-sidebar js-sidebar">
         <div class="s-full js-hide-sidebar"></div>
@@ -192,23 +191,19 @@
 
 
     <!-- Slider -->
-    @{ Html.RenderAction("Slider","Home");}
-
-
+    @RenderSection("Slider",false)
+  
     <!-- Banner -->
-    @{ Html.RenderAction("Banner","Home");}
-
+    @RenderSection("Banner",false)
 
     <!-- Product -->
     @RenderBody()
 
     <!-- Blog -->
-    @{ Html.RenderAction("Blog","Home");}
-
+    @RenderSection("Blog",false)
 
     <!-- Footer -->
     @{ Html.RenderAction("Footer", "Home");}
-
 
     <!-- Back to top -->
     <div class="btn-back-to-top" id="myBtn">

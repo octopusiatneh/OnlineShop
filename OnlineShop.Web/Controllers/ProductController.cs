@@ -1,22 +1,58 @@
-﻿using System;
+﻿using AutoMapper;
+using OnlineShop.Model.Models;
+using OnlineShop.Service;
+using OnlineShop.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PagedList;
 using System.Web.Mvc;
 
 namespace OnlineShop.Web.Controllers
 {
     public class ProductController : Controller
     {
+        IProductCategoryService _productCategoryService;
+        IProductService _productService;
+        ICommonService _commonService;
+
+        public ProductController(IProductService productService, IProductCategoryService productCategoryService, ICommonService commonService)
+        {
+            _productService = productService;
+            _productCategoryService = productCategoryService;
+            _commonService = commonService;
+        }
         // GET: Product
         public ActionResult Detail(int id)
         {
             return View();
         }
 
-        public ActionResult Category(int id)
+        //public ActionResult Index()
+        //{
+        //    var productModel = _productService.GetAll();
+        //    var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
+
+        //    return View(productViewModel);
+        //}
+
+        public ActionResult Index(int? page)
         {
-            return View();
+            var shopViewModel = new ShopViewModel();
+
+            var productCategoryModel = _productCategoryService.GetAll();
+            var productModel = _productService.GetAll();
+            var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
+            var productCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategoryModel);
+
+            int pageSize = 8;
+            int pageNumber = (page ?? 1);
+
+            shopViewModel.ProductCategories = productCategoryViewModel;
+            shopViewModel.Products = productViewModel.ToPagedList(pageNumber, pageSize);
+           
+            return View(shopViewModel);
         }
     }
 }
