@@ -7558,6 +7558,7 @@
     <Content Include="Assets\client\images\thumb-01.jpg" />
     <Content Include="Assets\client\images\thumb-02.jpg" />
     <Content Include="Assets\client\images\thumb-03.jpg" />
+    <Content Include="Assets\client\js\common.js" />
     <Content Include="Assets\client\js\main.js" />
     <Content Include="Assets\client\js\map-custom.js" />
     <Content Include="Assets\client\js\slick-custom.js" />
@@ -8338,6 +8339,7 @@
     <Content Include="Views\Shared\Blog.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineShop.Common\OnlineShop.Common.csproj">

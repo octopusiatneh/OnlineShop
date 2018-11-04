@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/main.css">
     <!--===============================================================================================-->
+    <link href="~/Assets/client/vendor/jqueryui/jquery-ui.theme.css" rel="stylesheet" />
 </head>
 <body class="animsition">
 
@@ -191,16 +192,16 @@
 
 
     <!-- Slider -->
-    @RenderSection("Slider",false)
-  
+    @RenderSection("Slider", false)
+
     <!-- Banner -->
-    @RenderSection("Banner",false)
+    @RenderSection("Banner", false)
 
     <!-- Product -->
     @RenderBody()
 
     <!-- Blog -->
-    @RenderSection("Blog",false)
+    @RenderSection("Blog", false)
 
     <!-- Footer -->
     @{ Html.RenderAction("Footer", "Home");}
@@ -368,6 +369,7 @@
 
     <!--===============================================================================================-->
     <script src="~/Assets/client/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Assets/client/vendor/jqueryui/jquery-ui.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/Assets/client/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
@@ -375,6 +377,7 @@
     <script src="~/Assets/client/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/Assets/client/vendor/select2/select2.min.js"></script>
+    <script src="~/Assets/client/js/common.js"></script>
     <script>
         $(".js-select2").each(function () {
             $(this).select2({

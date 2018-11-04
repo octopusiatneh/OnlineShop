@@ -37,7 +37,7 @@ namespace OnlineShop.Web.Controllers
         //    return View(productViewModel);
         //}
 
-        public ActionResult Index(int? page,int pageSize = 8,string sort="")
+        public ActionResult Index(int? page, int pageSize = 8, string sort = "")
         {
             var shopViewModel = new ShopViewModel();
 
@@ -51,8 +51,36 @@ namespace OnlineShop.Web.Controllers
 
             shopViewModel.ProductCategories = productCategoryViewModel;
             shopViewModel.Products = productViewModel.ToPagedList(pageNumber, pageSize);
-           
+
             return View(shopViewModel);
+        }
+
+        public ActionResult Search(int? page, int pageSize = 8, string keyword = "")
+        {
+            var shopViewModel = new ShopViewModel();
+
+            var productCategoryModel = _productCategoryService.GetAll();
+            var productModel = _productService.Search(keyword);
+            var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
+            var productCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategoryModel);
+
+            ViewBag.Keyword = keyword;
+            int pageNumber = (page ?? 1);
+
+            shopViewModel.ProductCategories = productCategoryViewModel;
+            shopViewModel.Products = productViewModel.ToPagedList(pageNumber, pageSize);
+
+            return View(shopViewModel);
+        }
+
+        public JsonResult GetListProductByName(string keyword)
+        {
+            var model = _productService.GetProductByName(keyword);
+     
+            return Json(new
+            {
+                data = model
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
