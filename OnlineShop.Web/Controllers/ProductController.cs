@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using PagedList;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace OnlineShop.Web.Controllers
 {
@@ -24,9 +25,29 @@ namespace OnlineShop.Web.Controllers
             _commonService = commonService;
         }
         // GET: Product
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int productId)
         {
-            return View();
+            var productModel = _productService.GetById(productId);
+
+            var relatedProducts = _productService.GetRelatedProducts(productId, 8);
+
+            ViewBag.RelatedProducts = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(relatedProducts);
+
+            var viewModel = Mapper.Map<Product, ProductViewModel>(productModel);
+
+            var moreImages = viewModel.MoreImages;
+
+            List<string> listImages = new List<string>();
+
+            if (viewModel.MoreImages != null)
+                listImages = new JavaScriptSerializer().Deserialize<List<string>>(viewModel.MoreImages);
+
+            var categoryName = _productCategoryService.GetById(viewModel.CategoryID).Name;
+
+            ViewBag.CategoryName = categoryName;
+            ViewBag.MoreImages = listImages;
+
+            return View(viewModel);
         }
 
         //public ActionResult Index()
@@ -76,7 +97,7 @@ namespace OnlineShop.Web.Controllers
         public JsonResult GetListProductByName(string keyword)
         {
             var model = _productService.GetProductByName(keyword);
-     
+
             return Json(new
             {
                 data = model

@@ -60,6 +60,14 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201811040847103_AddProductQuantity.cs" />
+    <Compile Include="Migrations\201811040847103_AddProductQuantity.Designer.cs">
+      <DependentUpon>201811040847103_AddProductQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811041019304_RemoveLimitOfDescription.cs" />
+    <Compile Include="Migrations\201811041019304_RemoveLimitOfDescription.Designer.cs">
+      <DependentUpon>201811041019304_RemoveLimitOfDescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +105,14 @@
       <Project>{5efa5071-8670-4fd9-a7d0-7bd1381d1cab}</Project>
       <Name>OnlineShop.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811040847103_AddProductQuantity.resx">
+      <DependentUpon>201811040847103_AddProductQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811041019304_RemoveLimitOfDescription.resx">
+      <DependentUpon>201811041019304_RemoveLimitOfDescription.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

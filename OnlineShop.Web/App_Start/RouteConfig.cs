@@ -38,8 +38,8 @@ namespace OnlineShop.Web
             );
 
             routes.MapRoute(
-                name: "Product Category",
-                url: "{alias}.p-{id}",
+                name: "Product Detail",
+                url: "p-{alias}-{productId}",
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
                namespaces: new string[] { "OnlineShop.Web.Controllers" }
             );

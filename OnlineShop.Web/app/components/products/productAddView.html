@@ -50,9 +50,10 @@
             </div>
 
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Bảo hành</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Số lượng</label>
                 <div class="col-sm-10">
-                    <input type="number" name="warranty" class="form-control" ng-model="product.Warranty">(tháng)
+                    <input type="number" name="quantity" required class="form-control" ng-model="product.Quantity">
+                    <span ng-show="frmAddProduct.price.$invalid" class="has-error">Phải nhập số lượng</span>
                 </div>
             </div>
 
@@ -91,9 +92,16 @@
             </div>
 
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Mô tả sản phẩm</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Content</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" name="content" ckeditor="ckeditorOptions" ng-model="product.Content"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="description" ckeditor="ckeditorOptions" ng-model="product.Description"></textarea>
                 </div>
             </div>
 
@@ -101,13 +109,6 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">Tags</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="tags" ng-model="product.Tags">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Meta keyword</label>
-                <div class="col-sm-10">
-                    <input type="text" name="metaKeyword" class="form-control" ng-model="product.MetaKeyword">
                 </div>
             </div>
 
@@ -125,7 +126,7 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="hotFlag" ng-model="product.HotFkag" ng-checked="product.HotFlag"> SP Hot
+                            <input type="checkbox" name="hotFlag" ng-model="product.HotFlag" ng-checked="product.HotFlag"> SP Hot
                         </label>
                     </div>
                 </div>

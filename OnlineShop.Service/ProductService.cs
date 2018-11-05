@@ -32,6 +32,8 @@ namespace OnlineShop.Service
 
         IEnumerable<Product> GetLastestProducts(int maxProduct);
 
+        IEnumerable<Product> GetRelatedProducts(int id, int top);
+
         IEnumerable<string> GetProductByName(string keyword);
 
         Product GetById(int id);
@@ -121,6 +123,12 @@ namespace OnlineShop.Service
         public IEnumerable<string> GetProductByName(string keyword)
         {
             return _productRepository.GetMulti(x => x.Status && x.Name.Contains(keyword)).Select(x=>x.Name);
+        }
+
+        public IEnumerable<Product> GetRelatedProducts(int id, int top)
+        {
+            var product = _productRepository.GetSingleById(id);
+            return _productRepository.GetMulti(x => x.Status && x.ID != id && x.CategoryID==product.CategoryID).Take(top);
         }
 
         public IEnumerable<Product> GetSaleProducts(int maxProduct)

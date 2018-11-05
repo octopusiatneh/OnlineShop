@@ -24,6 +24,7 @@ namespace OnlineShop.Web.Controllers
         }
 
         // GET: Home
+        [OutputCache(Duration =60,Location =System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
@@ -40,6 +41,7 @@ namespace OnlineShop.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration =3600)]
         public PartialViewResult Footer()
         {
             var model = _productCategoryService.GetAll();
@@ -50,6 +52,7 @@ namespace OnlineShop.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public PartialViewResult Header()
         {
             return PartialView();

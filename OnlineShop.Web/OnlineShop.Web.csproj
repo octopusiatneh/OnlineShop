@@ -8143,17 +8143,6 @@
     <Content Include="Assets\admin\libs\select2\src\scss\_single.scss" />
     <Content Include="Assets\admin\css\adminlte.css.map" />
     <Content Include="Assets\admin\css\adminlte.min.css.map" />
-    <Content Include="fonts\helveticaneue.ttf" />
-    <Content Include="fonts\helveticaneuebold.ttf" />
-    <Content Include="fonts\helveticaneuebolditalic.ttf" />
-    <Content Include="fonts\helveticaneuecondensedblack.ttf" />
-    <Content Include="fonts\helveticaneuecondensedbold.ttf" />
-    <Content Include="fonts\helveticaneueitalic.ttf" />
-    <Content Include="fonts\helveticaneuelight.ttf" />
-    <Content Include="fonts\helveticaneuelightitalic.ttf" />
-    <Content Include="fonts\helveticaneuemedium.ttf" />
-    <Content Include="fonts\helveticaneueultralight.ttf" />
-    <Content Include="fonts\helveticaneueultralightitalic.ttf" />
     <Content Include="Assets\admin\libs\toastr\.bower.json" />
     <Content Include="Assets\admin\libs\toastr\bower.json" />
     <Content Include="Assets\admin\libs\toastr\LICENSE" />
@@ -8340,6 +8329,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineShop.Common\OnlineShop.Common.csproj">
