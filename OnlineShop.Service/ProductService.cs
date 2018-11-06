@@ -133,7 +133,7 @@ namespace OnlineShop.Service
 
         public IEnumerable<Product> GetSaleProducts(int maxProduct)
         {
-            throw new NotImplementedException();
+            return _productRepository.GetMulti(x => x.Status && x.PromotionPrice.HasValue).Take(maxProduct);
         }
 
         public IEnumerable<Product> GetSortedProduct(string sort)

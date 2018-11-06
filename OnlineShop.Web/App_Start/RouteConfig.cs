@@ -24,10 +24,17 @@ namespace OnlineShop.Web
            );
 
             routes.MapRoute(
+               name: "Contact",
+               url: "lien-he",
+               defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+               namespaces: new string[] { "OnlineShop.Web.Controllers" }
+           );
+
+            routes.MapRoute(
                name: "About",
                url: "gioi-thieu",
                defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
-               namespaces: new string [] {"OnlineShop.Web.Controllers"}
+               namespaces: new string[] { "OnlineShop.Web.Controllers" }
            );
 
             routes.MapRoute(

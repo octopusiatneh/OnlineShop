@@ -24,19 +24,21 @@ namespace OnlineShop.Web.Controllers
         }
 
         // GET: Home
-        [OutputCache(Duration =60,Location =System.Web.UI.OutputCacheLocation.Server)]
+        [OutputCache(Duration = 60,Location =System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
 
-            var lastestProductModel = _productService.GetLastestProducts(8);
-            var hotProductModel = _productService.GetHotProducts(8);
+            var lastestProductModel = _productService.GetLastestProducts(24);
+            var hotProductModel = _productService.GetHotProducts(24);
+            var saleProductModel = _productService.GetSaleProducts(24);
             var lastestProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lastestProductModel);
             var hotProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(hotProductModel);
-
+            var saleProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(saleProductModel);
 
             homeViewModel.LastestProduct = lastestProductViewModel;
             homeViewModel.HotProduct = hotProductViewModel;
+            homeViewModel.SaleProduct = saleProductViewModel;
             return View(homeViewModel);
         }
 

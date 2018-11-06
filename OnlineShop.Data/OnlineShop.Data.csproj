@@ -68,9 +68,14 @@
     <Compile Include="Migrations\201811041019304_RemoveLimitOfDescription.Designer.cs">
       <DependentUpon>201811041019304_RemoveLimitOfDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811060353441_AddContactDetail.cs" />
+    <Compile Include="Migrations\201811060353441_AddContactDetail.Designer.cs">
+      <DependentUpon>201811060353441_AddContactDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ContactDetailRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
     <Compile Include="Repositories\MenuGroupRepository.cs" />
@@ -112,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811041019304_RemoveLimitOfDescription.resx">
       <DependentUpon>201811041019304_RemoveLimitOfDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811060353441_AddContactDetail.resx">
+      <DependentUpon>201811060353441_AddContactDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

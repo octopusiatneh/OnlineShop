@@ -10,5 +10,6 @@ namespace OnlineShop.Web.Models
         public IEnumerable<SlideViewModel> Slides { get; set; }
         public IEnumerable<ProductViewModel> LastestProduct { get; set; }
         public IEnumerable<ProductViewModel> HotProduct { get; set; }
+        public IEnumerable<ProductViewModel> SaleProduct { get; set; }
     }
 }
