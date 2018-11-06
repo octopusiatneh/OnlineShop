@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Data.Repositories
 {
-    public interface IContactDetailRepository : IRepository<ContactDetail>
+    public interface IContactDetail : IRepository<ContactDetail>
     {
 
     }
 
-    public class ContactDetailRepository : RepositoryBase<ContactDetail>, IContactDetailRepository
+    public class ContactDetailRepository : RepositoryBase<ContactDetail>, IContactDetail
     {
         public ContactDetailRepository(IDbFactory dbFactory) : base(dbFactory)
         {

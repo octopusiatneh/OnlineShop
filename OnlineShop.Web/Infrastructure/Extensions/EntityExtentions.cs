@@ -100,5 +100,15 @@ namespace OnlineShop.Web.Infrastructure.Extensions
             product.Tags = productVm.Tags;
             product.Quantity = productVm.Quantity;
         }
+
+        public static void UpdateFeedback(this Feedback feedback,FeedbackViewModel feedbackViewModel)
+        {
+            feedback.Name = feedbackViewModel.Name;
+            feedback.Email = feedbackViewModel.Email;
+            feedback.Message = feedbackViewModel.Message;
+            feedback.Status = feedbackViewModel.Status;
+            feedback.CreatedDate = DateTime.Now;
+
+        }
     }
 }

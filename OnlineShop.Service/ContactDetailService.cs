@@ -15,10 +15,10 @@ namespace OnlineShop.Service
     }
     public class ContactDetailService : IContactDetailService
     {
-        IContactDetailRepository _contactDetailRepository;
+        IContactDetail _contactDetailRepository;
         IUnitOfWork _unitOfWork;
 
-        public ContactDetailService(IContactDetailRepository contactDetailRepository, IUnitOfWork unitOfWork)
+        public ContactDetailService(IContactDetail contactDetailRepository, IUnitOfWork unitOfWork)
         {
             this._contactDetailRepository = contactDetailRepository;
             this._unitOfWork = unitOfWork;

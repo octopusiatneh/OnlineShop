@@ -1,9 +1,10 @@
-﻿@model OnlineShop.Web.Models.ContactDetailViewModel
-
+﻿@model OnlineShop.Web.Models.FeedbackViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+<!-- reCaptcha -->
+<script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
 
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('/Assets/client/images/bg-01.jpg');">
@@ -18,24 +19,42 @@
     <div class="container">
         <div class="flex-w flex-tr">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                <form>
+                @using (Html.BeginForm("SendFeedback", "Contact", FormMethod.Post))
+                {
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Send Us A Message
                     </h4>
+                    if (ViewData["SuccessMsg"] != null)
+                    {
+                        var alert = ViewData["SuccessMsg"] as string;
+                        <div class="alert alert-success" role="alert" style="text-align:center">
+                            <p style="text-align:center">@alert</p>
+                        </div>
+                    }
+                    else if (ViewData["ErrorMsg"] != null)
+                    {
+                        var alert = ViewData["ErrorMsg"] as string;
+                        <div class="alert alert-danger" role="alert" style="text-align:center">
+                            <p>@alert</p>
+                        </div>
+                    }
+                    @Html.ValidationSummary(false, "", new { @class = "error", style = "color: red" })
 
                     <div class="bor8 m-b-20 how-pos4-parent">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "stext-111 cl2 plh3 size-116 p-l-62 p-r-30", placeholder = "Your Email Address" })
                         <img class="how-pos4 pointer-none" src="/Assets/client/images/icons/icon-email.png" alt="ICON">
                     </div>
 
                     <div class="bor8 m-b-30">
-                        <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
+                        @Html.TextAreaFor(model => model.Message, new { @class = "stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25", placeholder = "How Can We Help?" })
                     </div>
 
-                    <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-                        Submit
+                    <div class="g-recaptcha" data-sitekey="6LdtA3kUAAAAADNk44JU5uSWc_pywCdNAoT9eDQe"></div>
+
+                    <button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                        Gửi
                     </button>
-                </form>
+                }
             </div>
 
             <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
@@ -46,11 +65,11 @@
 
                     <div class="size-212 p-t-2">
                         <span class="mtext-110 cl2">
-                            Address
+                            Cửa hàng
                         </span>
 
                         <p class="stext-115 cl6 size-213 p-t-18">
-                            @Model.Address
+                            @Model.ContactDetail.Address
                         </p>
                     </div>
                 </div>
@@ -66,7 +85,7 @@
                         </span>
 
                         <p class="stext-115 cl1 size-213 p-t-18">
-                            @Model.Phone
+                            @Model.ContactDetail.Phone
                         </p>
                     </div>
                 </div>
@@ -78,11 +97,11 @@
 
                     <div class="size-212 p-t-2">
                         <span class="mtext-110 cl2">
-                            Hay là... thư điện tử nhé
+                            Hay là... thư điện tử
                         </span>
 
                         <p class="stext-115 cl1 size-213 p-t-18">
-                            @Model.Email
+                            @Model.ContactDetail.Email
                         </p>
                     </div>
                 </div>
@@ -92,9 +111,6 @@
 </section>
 
 <!-- Map -->
-@*<div class="map">
-    <div class="size-303" id="mapdiv"></div>
-</div>*@
 <div id="mapdiv" class="size-303"></div>
 
 <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
@@ -102,7 +118,7 @@
     map = new OpenLayers.Map("mapdiv");
     map.addLayer(new OpenLayers.Layer.OSM());
 
-    var lonLat = new OpenLayers.LonLat(@Model.Lng, @Model.Lat)
+    var lonLat = new OpenLayers.LonLat(@Model.ContactDetail.Lng,@Model.ContactDetail.Lat)
         .transform(
             new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
             map.getProjectionObject() // to Spherical Mercator Projection
@@ -117,3 +133,4 @@
 
     map.setCenter(lonLat, zoom);
 </script>
+
