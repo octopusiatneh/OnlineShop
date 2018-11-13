@@ -20,7 +20,7 @@ namespace OnlineShop.Web.Api
         [Route("TestMethod")]
         public string TestMethod()
         {
-            return "Hello, TEDU Member. ";
+            return "Hello, memb. ";
         }
     }
 }
