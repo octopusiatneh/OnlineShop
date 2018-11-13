@@ -24,7 +24,7 @@ namespace OnlineShop.Web.Controllers
         }
 
         // GET: Home
-        [OutputCache(Duration = 60,Location =System.Web.UI.OutputCacheLocation.Server)]
+        [OutputCache(Duration = 10,Location =System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
@@ -43,7 +43,7 @@ namespace OnlineShop.Web.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration =3600)]
+        [OutputCache(Duration = 3600, Location = System.Web.UI.OutputCacheLocation.Client)]
         public PartialViewResult Footer()
         {
             var model = _productCategoryService.GetAll();
@@ -54,13 +54,14 @@ namespace OnlineShop.Web.Controllers
         }
 
         [ChildActionOnly]
-        [OutputCache(Duration = 3600)]
+        [OutputCache(Duration = 3600, Location = System.Web.UI.OutputCacheLocation.Client)]
         public PartialViewResult Header()
         {
             return PartialView();
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600,Location =System.Web.UI.OutputCacheLocation.Client)]
         public PartialViewResult Slider()
         {
             var slideModel = _commonService.GetSlides();
@@ -71,12 +72,14 @@ namespace OnlineShop.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600, Location = System.Web.UI.OutputCacheLocation.Client)]
         public PartialViewResult Banner()
         {
             return PartialView();
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600, Location = System.Web.UI.OutputCacheLocation.Client)]
         public PartialViewResult Blog()
         {
             return PartialView();

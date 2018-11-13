@@ -3,8 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-<!-- reCaptcha -->
-<script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
 
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('/Assets/client/images/bg-01.jpg');">
@@ -110,12 +108,15 @@
     </div>
 </section>
 
+<!-- reCaptcha -->
+<script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
+<!-- OpenMap -->
+<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 <!-- Map -->
 <div id="mapdiv" class="size-303"></div>
-
-<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 <script>
-    map = new OpenLayers.Map("mapdiv");
+    $(document).ready(function () {
+        map = new OpenLayers.Map("mapdiv");
     map.addLayer(new OpenLayers.Layer.OSM());
 
     var lonLat = new OpenLayers.LonLat(@Model.ContactDetail.Lng,@Model.ContactDetail.Lat)
@@ -132,5 +133,6 @@
     markers.addMarker(new OpenLayers.Marker(lonLat));
 
     map.setCenter(lonLat, zoom);
+    })
 </script>
 

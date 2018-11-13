@@ -79,7 +79,14 @@
                     </h4>
 
                     <span class="mtext-106 cl2">
-                        $   @Model.Price
+                        @if (Model.PromotionPrice.HasValue)
+                        {
+                            <strike>@Html.Raw("&#36;")@Model.Price</strike> @Html.Raw("&#36;")@Model.PromotionPrice <span class="badge badge-danger">Hot</span>
+                        }
+                        else
+                        {
+                            @Html.Raw("&#36;") @Model.Price
+                        }
                     </span>
                     @if (Model.Quantity > 0)
                     {
