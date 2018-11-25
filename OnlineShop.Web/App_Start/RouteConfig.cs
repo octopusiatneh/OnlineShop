@@ -9,8 +9,6 @@ namespace OnlineShop.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.IgnoreRoute("{*botdetect}", new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
-
             routes.MapRoute(
              name: "Search",
              url: "tim-kiem",
@@ -19,9 +17,9 @@ namespace OnlineShop.Web
          );
 
             routes.MapRoute(
-               name: "Login",
-               url: "dang-nhap",
-               defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
+               name: "ShoppingCart",
+               url: "gio-hang",
+               defaults: new { controller = "ShoppingCart", action = "Index", id = UrlParameter.Optional },
                namespaces: new string[] { "OnlineShop.Web.Controllers" }
            );
 

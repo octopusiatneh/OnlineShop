@@ -568,6 +568,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -587,6 +588,7 @@
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\ShopViewModel.cs" />
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
@@ -7188,6 +7190,10 @@
     <Content Include="Assets\admin\libs\morris.js\spec\viz\exemplary\stacked_bar0.png" />
     <Content Include="Assets\admin\libs\morris.js\spec\viz\test.html" />
     <Content Include="Assets\admin\libs\morris.js\spec\viz\visual_specs.js" />
+    <Content Include="Assets\admin\libs\mustache\mustache.js" />
+    <Content Include="Assets\admin\libs\mustache\mustache.min.js" />
+    <Content Include="Assets\admin\libs\mustache\spec\_files\bom_as_whitespace.js" />
+    <Content Include="Assets\admin\libs\mustache\spec\_files\bom_as_whitespace.txt" />
     <Content Include="Assets\admin\libs\ng-ckeditor\.gitignore" />
     <Content Include="Assets\admin\libs\ng-ckeditor\examples\1.html" />
     <Content Include="Assets\admin\libs\ng-ckeditor\examples\checkspelling.php" />
@@ -7898,6 +7904,7 @@
     <Content Include="Assets\client\js\contact.js" />
     <Content Include="Assets\client\js\main.js" />
     <Content Include="Assets\client\js\map-custom.js" />
+    <Content Include="Assets\client\js\shoppingCart.js" />
     <Content Include="Assets\client\js\slick-custom.js" />
     <Content Include="Assets\client\template\contact_template.html" />
     <Content Include="Assets\client\vendor\animate\animate.css" />
@@ -8654,6 +8661,29 @@
     <Content Include="Assets\client\vendor\slick\slick.less" />
     <Content Include="Assets\client\vendor\slick\slick.scss" />
     <Content Include="Assets\client\fonts\Poppins\Poppins-Regular.ttf" />
+    <Content Include="Assets\admin\libs\mustache\.bower.json" />
+    <Content Include="Assets\admin\libs\mustache\bin\mustache" />
+    <Content Include="Assets\admin\libs\mustache\bower.json" />
+    <Content Include="Assets\admin\libs\mustache\CHANGELOG.md" />
+    <Content Include="Assets\admin\libs\mustache\hooks\install-hooks.sh" />
+    <Content Include="Assets\admin\libs\mustache\hooks\pre-commit" />
+    <Content Include="Assets\admin\libs\mustache\LICENSE" />
+    <Content Include="Assets\admin\libs\mustache\MIGRATING.md" />
+    <Content Include="Assets\admin\libs\mustache\mustache.js.nuspec" />
+    <Content Include="Assets\admin\libs\mustache\package.json" />
+    <Content Include="Assets\admin\libs\mustache\Rakefile" />
+    <Content Include="Assets\admin\libs\mustache\README.md" />
+    <Content Include="Assets\admin\libs\mustache\spec\_files\bom_as_whitespace.mustache" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\dojo\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\dojo\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\jquery\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\jquery\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\mootools\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\mootools\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\qooxdoo\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\qooxdoo\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\yui3\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\yui3\mustache.js.pre" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
@@ -8669,6 +8699,7 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineShop.Common\OnlineShop.Common.csproj">
