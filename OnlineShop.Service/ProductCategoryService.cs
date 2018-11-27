@@ -53,7 +53,7 @@ namespace OnlineShop.Service
         public IEnumerable<ProductCategory> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _ProductCategoryRepository.GetMulti(x => x.Name.Contains(keyword) || x.ID.ToString().Contains(keyword));
+                return _ProductCategoryRepository.GetMulti(x => x.Name.Contains(keyword) || x.ID.ToString().StartsWith(keyword));
             else
                 return _ProductCategoryRepository.GetAll();
         }

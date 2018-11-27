@@ -61,12 +61,10 @@ namespace OnlineShop.Web.Api
         {
             return CreateHttpResponse(request, () =>
             {
-
                 var model = _productCategoryService.GetAll();
 
                 var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
 
-               
                 var response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;
             });

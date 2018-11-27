@@ -53,7 +53,7 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">Số lượng</label>
                 <div class="col-sm-10">
                     <input type="number" name="quantity" required class="form-control" ng-model="product.Quantity">
-                    <span ng-show="frmAddProduct.price.$invalid" class="has-error">Phải nhập số lượng</span>
+                    <span ng-show="frmAddProduct.quantity.$invalid" class="has-error">Phải nhập số lượng</span>
                 </div>
             </div>
 
@@ -77,6 +77,11 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="image" ng-model="product.Image" ng-maxlength="256">
                     <span ng-show="frmAddProduct.image.$error.maxlength" class="has-error">Hình ảnh chỉ được 256 kí tự</span>
+                    <ul class="list-inline">
+                        <li>
+                            <img src="{{product.Image}}" width="100" />
+                        </li>
+                    </ul>
                     <button class="btn btn-default" type="button" ng-click="ChooseImage()">Chọn ảnh</button>
                 </div>
             </div>

@@ -4,6 +4,8 @@
     productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
 
     function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
+        $scope.sortType = 'CreatedDate';
+        $scope.sortIt = false;
         $scope.products = [];
         $scope.page = 0;
         $scope.pagesCount = 0;
@@ -11,12 +13,22 @@
         $scope.keyword = '';
 
         $scope.search = search;
+        $scope.searchRealtime = searchRealtime;
 
         $scope.deleteProduct = deleteProduct;
 
         $scope.selectAll = selectAll;
 
         $scope.deleteMultiple = deleteMultiple;
+        $scope.searchPressEnter = searchPressEnter;
+
+        function searchPressEnter(event) {
+            if (event.keyCode == 13) {
+                search();
+                return false;
+            }
+            return true;
+        }
 
         function deleteMultiple() {
             var listId = [];
@@ -29,7 +41,7 @@
                 }
             }
             apiService.del('api/product/deletemulti', config, function (result) {
-                notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi.');
+                notificationService.displaySuccess('Xóa thành công ' + result.data + ' sản phẩm.');
                 search();
             }, function (error) {
                 notificationService.displayError('Xóa không thành công');
@@ -92,17 +104,46 @@
                 params: {
                     keyword: $scope.keyword,
                     page: page,
-                    pageSize: 20
+                    pageSize: 15
                 }
             }
             apiService.get('/api/product/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
-                    notificationService.displayWarning('Không có bản ghi nào được tìm thấy.');
+                    notificationService.displayWarning('Không tìm thấy sản phẩm nào.');
                 }
                 $scope.products = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
+                if (result.data.TotalCount > 0) {
+                    notificationService.displaySuccess('Đã tìm thấy ' + result.data.TotalCount + ' sản phẩm');
+                }
+            }, function () {
+                console.log('Load product failed.');
+            });
+        }
+
+        function searchRealtime() {
+            getProductCagoriesRealtime();
+        }
+
+        function getProductCagoriesRealtime(page) {
+            page = page || 0;
+            var config = {
+                params: {
+                    keyword: $scope.keyword,
+                    page: page,
+                    pageSize: 20
+                }
+            }
+            apiService.get('/api/product/getall', config, function (result) {
+                $scope.productCategories = result.data.Items;
+                $scope.page = result.data.Page;
+                $scope.pagesCount = result.data.TotalPages;
+                $scope.totalCount = result.data.TotalCount;
+                if (result.data.TotalCount > 0) {
+                    notificationService.displaySuccess('Đã tìm thấy ' + result.data.TotalCount + ' sản phẩm');
+                }
             }, function () {
                 console.log('Load product failed.');
             });

@@ -99,7 +99,8 @@ namespace OnlineShop.Service
         public IEnumerable<Product> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _productRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
+                return _productRepository.GetMulti(x => x.Name.Contains(keyword) || x.ID.ToString().StartsWith(keyword) 
+                || x.Price.ToString().Contains(keyword) || x.PromotionPrice.ToString().Contains(keyword) || x.CreatedBy.StartsWith(keyword));
             else
                 return _productRepository.GetAll();
         }

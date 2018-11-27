@@ -24,12 +24,24 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="input-group">
+                    <!--<div class="input-group">
                         <input type="text" class="form-control" ng-model="keyword" placeholder="Từ khóa">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button" ng-click="search()">Tìm Kiếm!</button>
                         </span>
-                    </div><!-- /input-group -->
+                    </div>-->
+                    <!-- /input-group -->
+
+                    <form>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="button" ng-click="search()"><i class="fa fa-search"></i></button>
+                                </div>
+                                <input type="text" ng-keyup="searchPressEnter($event)" class="form-control" placeholder="Tìm kiếm..." ng-model="keyword">
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="col-md-6">
@@ -41,25 +53,80 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <td><label><input name="all" type="checkbox" ng-click="selectAll()" /></label></td>
-                        <th style="width: 5%;text-align:center">ID</th>
-                        <th style="width: 55%;text-align:left">Tên sản phẩm</th>
-                        <th style="width: 20%;text-align:center">Ngày tạo</th>
-                        <th style="width: 10%" ;text-align:center">Trạng thái</th>
-                        <th style="width: 10%">Thao tác</th>
+                        <td align="center"><label><input name="all" type="checkbox" ng-click="selectAll()" /></label></td>
+                        <th style="width: 5%;text-align:center">
+                            <a style="all:unset" href="javascript:void(0)" ng-click="sortType = 'ID'; sortIt = !sortIt">
+                                ID
+                                <span ng-show="sortType == 'ID' && !sortIt" class="fa fa-sort-numeric-asc"></span>
+                                <span ng-show="sortType == 'ID' && sortIt" class="fa fa-sort-numeric-desc"></span>
+                            </a>
+                        </th>
+                        <th style="width: 20%;text-align:center">
+                            <a style="all:unset" href="javascript:void(0)" ng-click="sortType = 'Name'; sortIt = !sortIt">
+                                Tên sản phẩm
+                                <span ng-show="sortType == 'Name' && !sortIt" class="fa fa-sort-alpha-asc"></span>
+                                <span ng-show="sortType == 'Name' && sortIt" class="fa fa-sort-alpha-desc"></span>
+                            </a>
+                        </th>
+                        <th style="width: 10%;text-align:center">
+                            <a style="all:unset" href="javascript:void(0)" ng-click="sortType = 'Price'; sortIt = !sortIt">
+                                Giá
+                                <span ng-show="sortType == 'Price' && !sortIt" class="fa fa-sort-numeric-asc"></span>
+                                <span ng-show="sortType == 'Price' && sortIt" class="fa fa-sort-numeric-desc"></span>
+                            </a>
+                        </th>
+                        <th style="width: 10%;text-align:center">
+                            <a style="all:unset" href="javascript:void(0)" ng-click="sortType = 'PromotionPrice'; sortIt = !sortIt">
+                                Giá KM
+                                <span ng-show="sortType == 'PromotionPrice' && !sortIt" class="fa fa-sort-numeric-asc"></span>
+                                <span ng-show="sortType == 'PromotionPrice' && sortIt" class="fa fa-sort-numeric-desc"></span>
+                            </a>
+                        </th>
+                        <th style="width: 10%;text-align:center">Hình ảnh</th>
+                        <th style="width: 10%;text-align:center">
+                            <a style="all:unset" href="javascript:void(0)" ng-click="sortType = 'CreatedBy'; sortIt = !sortIt">
+                                Người tạo
+                                <span ng-show="sortType == 'CreatedBy' && !sortIt" class="fa fa-sort-numeric-asc"></span>
+                                <span ng-show="sortType == 'CreatedBy' && sortIt" class="fa fa-sort-numeric-desc"></span>
+                            </a>
+                        </th>
+                        <th style="width: 10%;text-align:center">
+                            <a style="all:unset" href="javascript:void(0)" ng-click="sortType = 'CreatedDate'; sortIt = !sortIt">
+                                Ngày tạo
+                                <span ng-show="sortType == 'CreatedDate' && !sortIt" class="fa fa-sort-numeric-asc"></span>
+                                <span ng-show="sortType == 'CreatedDate' && sortIt" class="fa fa-sort-numeric-desc"></span>
+                            </a>
+                        </th>
+                        <th style="width: 10%;text-align:center">Trạng thái</th>
+                        <th style="width: 10%;text-align:center">Thao tác</th>
                     </tr>
-                    <tr ng-repeat="item in  products">
-                        <td><input type="checkbox" ng-model="item.checked" name="all" /></td>
-                        <td>{{item.ID}}</td>
-                        <td>{{item.Name}}</td>
-                        <td>
-                            {{item.CreatedDate | date: 'dd/MM/yyyy  hh:mm:ss'}}
+                    <tr ng-repeat="item in products | orderBy:sortType:sortIt">
+                        <td align="center"><input type="checkbox" ng-model="item.checked" name="all" /></td>
+                        <td align="center">{{item.ID}}</td>
+                        <td align="center">{{item.Name}}</td>
+                        <td align="center">$ {{item.Price}}</td>
+                        <td align="center">
+                            <div ng-if="item.PromotionPrice!==null">
+                                $ {{item.PromotionPrice}}
+                            </div>
+                            <div ng-if="item.PromotionPrice===null">
+                                Không có
+                            </div>
+                        </td>
+                        <td align="center">
+                            <img src="{{item.Image}}" style="width:100px;height:100px"/> 
+                        </td>
+                        <td align="center">
+                            {{item.CreatedBy}}
+                        </td>
+                        <td align="center">
+                            {{item.CreatedDate | date: 'dd/MM/yyyy'}}
                         </td>
                         <td align="center">
                             <span ng-class="{'badge bg-red':item.Status == false,
                                                  'badge bg-green':item.Status== true}">{{item.Status | statusFilter}}</span>
                         </td>
-                        <td>
+                        <td align="center">
                             <button class="btn btn-primary" ui-sref="product_edit({id:item.ID})"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-danger" ng-click="deleteProduct(item.ID)"><i class="fa fa-trash"></i></button>
                         </td>
