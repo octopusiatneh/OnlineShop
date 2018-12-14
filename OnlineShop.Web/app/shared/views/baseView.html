@@ -149,7 +149,7 @@
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
-                </li>       
+                </li>
                 <li>
                     <a ui-sref="product_categories">
                         <i class="fa fa-th"></i> <span>Danh mục sản phẩm</span>
@@ -166,7 +166,20 @@
                         </span>
                     </a>
                 </li>
-                
+
+                <li class="treeview active">
+                    <a href="javascript:void(0);">
+                        <i class="fa fa-files-o"></i>
+                        <span>Hệ thống</span>
+                        <span class="label label-primary pull-right">3</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a ui-sref="application_groups"><i class="fa fa-circle-o"></i> Nhóm người dùng</a></li>
+                        <li><a ui-sref="application_roles"><i class="fa fa-circle-o"></i> Quyền</a></li>
+                        <li><a ui-sref="application_users"><i class="fa fa-circle-o"></i> Người dùng</a></li>
+                    </ul>
+                </li>
+
                 <li class="treeview">
                     <a href="javascript:void(0)">
                         <i class="fa fa-pie-chart"></i>
@@ -392,3 +405,4 @@
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div><!-- ./wrapper -->
+

@@ -58,7 +58,7 @@ namespace OnlineShop.Web.Controllers
         //    return View(productViewModel);
         //}
 
-        public ActionResult Index(int? page, int pageSize = 8, string sort = "")
+        public ActionResult Index(int? page, int pageSize = 16, string sort = "")
         {
             var shopViewModel = new ShopViewModel();
 

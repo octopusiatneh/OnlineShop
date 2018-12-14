@@ -19,6 +19,13 @@ namespace OnlineShop.Web
          );
 
             routes.MapRoute(
+               name: "ShoppingCart",
+               url: "gio-hang",
+               defaults: new { controller = "ShoppingCart", action = "Index", id = UrlParameter.Optional },
+               namespaces: new string[] { "OnlineShop.Web.Controllers" }
+           );
+
+            routes.MapRoute(
                name: "Login",
                url: "dang-nhap",
                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },

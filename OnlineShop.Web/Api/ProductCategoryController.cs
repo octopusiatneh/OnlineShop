@@ -88,6 +88,7 @@ namespace OnlineShop.Web.Api
 
         [Route("create")]
         [HttpPost]
+        [Authorize(Roles ="AddCategory")]
         public HttpResponseMessage Create(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
             return CreateHttpResponse(request, () =>
@@ -117,6 +118,7 @@ namespace OnlineShop.Web.Api
 
         [Route("update")]
         [HttpPut]
+        [Authorize(Roles = "UpdateCategory")]
         public HttpResponseMessage Update(HttpRequestMessage request, ProductCategoryViewModel productCategoryVm)
         {
             return CreateHttpResponse(request, () =>
@@ -146,6 +148,7 @@ namespace OnlineShop.Web.Api
 
         [Route("delete")]
         [HttpDelete]
+        [Authorize(Roles ="DeleteCategory")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>

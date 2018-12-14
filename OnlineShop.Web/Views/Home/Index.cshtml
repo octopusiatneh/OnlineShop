@@ -101,7 +101,7 @@
                         <div class="slick2">
                             @foreach (var product in Model.LastestProduct)
                             {
-                                var url = "/" + product.Alias + ".p" + product.ID + ".html";
+                                var url = "/p-" + product.Alias + "-" + product.ID;
                                 <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
                                     <!-- Block2 -->
                                     <div class="block2">
@@ -152,7 +152,7 @@
                         <div class="slick2">
                             @foreach (var product in Model.SaleProduct)
                             {
-                                var url = "/" + product.Alias + ".p" + product.ID + ".html";
+                                var url = "/p-" + product.Alias + "-" + product.ID;
                                 <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
                                     <!-- Block2 -->
                                     <div class="block2">

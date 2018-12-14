@@ -549,6 +549,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountController.cs" />
+    <Compile Include="Api\ApplicationGroupController.cs" />
+    <Compile Include="Api\ApplicationRoleController.cs" />
+    <Compile Include="Api\ApplicationUserController.cs" />
     <Compile Include="Api\CaptchaResponse.cs" />
     <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
@@ -568,6 +571,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -575,6 +579,9 @@
     <Compile Include="Infrastructure\Core\PaginationSet.cs" />
     <Compile Include="Infrastructure\Extensions\EntityExtentions.cs" />
     <Compile Include="Mapping\AutoMapperConfiguration.cs" />
+    <Compile Include="Models\ApplicationGroupViewModel.cs" />
+    <Compile Include="Models\ApplicationRoleViewModel.cs" />
+    <Compile Include="Models\ApplicationUserViewModel.cs" />
     <Compile Include="Models\ContactDetailViewModel.cs" />
     <Compile Include="Models\FeedbackViewModel.cs" />
     <Compile Include="Models\FooterCategoryViewModel.cs" />
@@ -587,6 +594,7 @@
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\FooterViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\ShopViewModel.cs" />
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
@@ -594,6 +602,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\components\application_groups\applicationGroupAddController.js" />
+    <Content Include="app\components\application_groups\applicationGroupAddView.html" />
+    <Content Include="app\components\application_groups\applicationGroupEditController.js" />
+    <Content Include="app\components\application_groups\applicationGroupEditView.html" />
+    <Content Include="app\components\application_groups\applicationGroupListController.js" />
+    <Content Include="app\components\application_groups\applicationGroupListView.html" />
+    <Content Include="app\components\application_groups\applicationGroups.module.js" />
+    <Content Include="app\components\application_roles\applicationRoleAddController.js" />
+    <Content Include="app\components\application_roles\applicationRoleAddView.html" />
+    <Content Include="app\components\application_roles\applicationRoleEditController.js" />
+    <Content Include="app\components\application_roles\applicationRoleEditView.html" />
+    <Content Include="app\components\application_roles\applicationRoleListController.js" />
+    <Content Include="app\components\application_roles\applicationRoleListView.html" />
+    <Content Include="app\components\application_roles\applicationRoles.module.js" />
+    <Content Include="app\components\application_users\applicationUserAddController.js" />
+    <Content Include="app\components\application_users\applicationUserAddView.html" />
+    <Content Include="app\components\application_users\applicationUserEditController.js" />
+    <Content Include="app\components\application_users\applicationUserEditView.html" />
+    <Content Include="app\components\application_users\applicationUserListController.js" />
+    <Content Include="app\components\application_users\applicationUserListView.html" />
+    <Content Include="app\components\application_users\applicationUsers.module.js" />
     <Content Include="app\components\home\homeController.js" />
     <Content Include="app\components\home\homeView.html" />
     <Content Include="app\components\home\rootController.js" />
@@ -613,6 +642,7 @@
     <Content Include="app\components\product_categories\productCategoryEditView.html" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
+    <Content Include="app\shared\directives\asDateDirective.js" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filter\idFilter.js" />
@@ -1052,6 +1082,8 @@
     <Content Include="Assets\admin\libs\chart.js\src\Chart.Line.js" />
     <Content Include="Assets\admin\libs\chart.js\src\Chart.PolarArea.js" />
     <Content Include="Assets\admin\libs\chart.js\src\Chart.Radar.js" />
+    <Content Include="Assets\admin\libs\checklist-model\checklist-model.js" />
+    <Content Include="Assets\admin\libs\checklist-model\LICENSE.txt" />
     <Content Include="Assets\admin\libs\ckeditor\adapters\jquery.js" />
     <Content Include="Assets\admin\libs\ckeditor\ckeditor.js" />
     <Content Include="Assets\admin\libs\ckeditor\config.js" />
@@ -7189,6 +7221,10 @@
     <Content Include="Assets\admin\libs\morris.js\spec\viz\exemplary\stacked_bar0.png" />
     <Content Include="Assets\admin\libs\morris.js\spec\viz\test.html" />
     <Content Include="Assets\admin\libs\morris.js\spec\viz\visual_specs.js" />
+    <Content Include="Assets\admin\libs\mustache\mustache.js" />
+    <Content Include="Assets\admin\libs\mustache\mustache.min.js" />
+    <Content Include="Assets\admin\libs\mustache\spec\_files\bom_as_whitespace.js" />
+    <Content Include="Assets\admin\libs\mustache\spec\_files\bom_as_whitespace.txt" />
     <Content Include="Assets\admin\libs\ng-ckeditor\.gitignore" />
     <Content Include="Assets\admin\libs\ng-ckeditor\examples\1.html" />
     <Content Include="Assets\admin\libs\ng-ckeditor\examples\checkspelling.php" />
@@ -7899,6 +7935,7 @@
     <Content Include="Assets\client\js\contact.js" />
     <Content Include="Assets\client\js\main.js" />
     <Content Include="Assets\client\js\map-custom.js" />
+    <Content Include="Assets\client\js\shoppingCart.js" />
     <Content Include="Assets\client\js\slick-custom.js" />
     <Content Include="Assets\client\template\contact_template.html" />
     <Content Include="Assets\client\vendor\animate\animate.css" />
@@ -7992,6 +8029,7 @@
     <Folder Include="app\shared\footer\" />
     <Folder Include="app\shared\navigation\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\admin\libs\checklist-model\test\" />
     <Folder Include="Assets\admin\libs\inputmask\dist\min\inputmask\bindings\" />
     <Folder Include="Assets\admin\libs\inputmask\dist\min\inputmask\dependencyLibs\" />
     <Folder Include="Assets\admin\libs\inputmask\dist\min\inputmask\global\" />
@@ -8655,6 +8693,32 @@
     <Content Include="Assets\client\vendor\slick\slick.less" />
     <Content Include="Assets\client\vendor\slick\slick.scss" />
     <Content Include="Assets\client\fonts\Poppins\Poppins-Regular.ttf" />
+    <Content Include="Assets\admin\libs\checklist-model\.bower.json" />
+    <Content Include="Assets\admin\libs\checklist-model\bower.json" />
+    <Content Include="Assets\admin\libs\checklist-model\readme.md" />
+    <Content Include="Assets\admin\libs\mustache\.bower.json" />
+    <Content Include="Assets\admin\libs\mustache\bin\mustache" />
+    <Content Include="Assets\admin\libs\mustache\bower.json" />
+    <Content Include="Assets\admin\libs\mustache\CHANGELOG.md" />
+    <Content Include="Assets\admin\libs\mustache\hooks\install-hooks.sh" />
+    <Content Include="Assets\admin\libs\mustache\hooks\pre-commit" />
+    <Content Include="Assets\admin\libs\mustache\LICENSE" />
+    <Content Include="Assets\admin\libs\mustache\MIGRATING.md" />
+    <Content Include="Assets\admin\libs\mustache\mustache.js.nuspec" />
+    <Content Include="Assets\admin\libs\mustache\package.json" />
+    <Content Include="Assets\admin\libs\mustache\Rakefile" />
+    <Content Include="Assets\admin\libs\mustache\README.md" />
+    <Content Include="Assets\admin\libs\mustache\spec\_files\bom_as_whitespace.mustache" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\dojo\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\dojo\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\jquery\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\jquery\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\mootools\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\mootools\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\qooxdoo\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\qooxdoo\mustache.js.pre" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\yui3\mustache.js.post" />
+    <Content Include="Assets\admin\libs\mustache\wrappers\yui3\mustache.js.pre" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
@@ -8670,6 +8734,7 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineShop.Common\OnlineShop.Common.csproj">

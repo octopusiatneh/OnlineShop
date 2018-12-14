@@ -80,9 +80,21 @@
     <Compile Include="Migrations\201811060930141_ModifyFeedback.Designer.cs">
       <DependentUpon>201811060930141_ModifyFeedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811300054143_AddGroupUser.cs" />
+    <Compile Include="Migrations\201811300054143_AddGroupUser.Designer.cs">
+      <DependentUpon>201811300054143_AddGroupUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811300135594_automaticmigration.cs" />
+    <Compile Include="Migrations\201811300135594_automaticmigration.Designer.cs">
+      <DependentUpon>201811300135594_automaticmigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApplicationGroupRepository.cs" />
+    <Compile Include="Repositories\ApplicationRoleGroupRepository.cs" />
+    <Compile Include="Repositories\ApplicationRoleRepository.cs" />
+    <Compile Include="Repositories\ApplicationUserGroupRepository.cs" />
     <Compile Include="Repositories\ContactDetailRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\FeedbackRepository.cs" />
@@ -135,6 +147,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811060930141_ModifyFeedback.resx">
       <DependentUpon>201811060930141_ModifyFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811300054143_AddGroupUser.resx">
+      <DependentUpon>201811300054143_AddGroupUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811300135594_automaticmigration.resx">
+      <DependentUpon>201811300135594_automaticmigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

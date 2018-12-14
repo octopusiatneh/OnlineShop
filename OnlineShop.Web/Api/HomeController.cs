@@ -7,7 +7,6 @@ using OnlineShop.Web.Infrastructure.Core;
 namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/home")]
-    [Authorize]
     public class HomeController : ApiControllerBase
     {
         IErrorService _errorService;

@@ -2,8 +2,11 @@
 
 (function () {
     angular.module('onlineshop',
-             ['onlineshop.products',
+        ['onlineshop.products',
+            'onlineshop.application_groups',
             'onlineshop.product_categories',
+            'onlineshop.application_roles',
+            'onlineshop.application_users',
             'onlineshop.common'])
         .config(config)
         .config(configAuthentication);
@@ -27,7 +30,7 @@
                 parent: 'base',
                 templateUrl: "/app/components/home/homeView.html",
                 controller: "homeController"
-        });
+            });
         $urlRouterProvider.otherwise('/login');
     }
 

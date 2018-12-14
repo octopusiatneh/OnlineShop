@@ -115,7 +115,6 @@
 <!-- Map -->
 <div id="mapdiv" class="size-303"></div>
 <script>
-    $(document).ready(function () {
         map = new OpenLayers.Map("mapdiv");
     map.addLayer(new OpenLayers.Layer.OSM());
 
@@ -133,6 +132,5 @@
     markers.addMarker(new OpenLayers.Marker(lonLat));
 
     map.setCenter(lonLat, zoom);
-    })
 </script>
 
