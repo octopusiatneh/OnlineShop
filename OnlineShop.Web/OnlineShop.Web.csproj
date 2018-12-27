@@ -586,6 +586,8 @@
     <Compile Include="Models\FeedbackViewModel.cs" />
     <Compile Include="Models\FooterCategoryViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\OrderDetailViewModel.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
@@ -8023,7 +8025,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\components\orders\" />
     <Folder Include="app\components\roles\" />
     <Folder Include="app\components\users\" />
     <Folder Include="app\shared\footer\" />
@@ -8035,6 +8036,7 @@
     <Folder Include="Assets\admin\libs\inputmask\dist\min\inputmask\global\" />
     <Folder Include="Assets\admin\libs\inputmask\dist\min\inputmask\phone-codes\" />
     <Folder Include="UploadFiles\" />
+    <Folder Include="Views\Order\" />
     <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>

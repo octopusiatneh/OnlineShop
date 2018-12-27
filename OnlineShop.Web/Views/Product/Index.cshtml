@@ -7,6 +7,9 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
+@section footerJS{
+    <script src="~/Assets/client/js/common.js"></script>
+}
 <!-- Product -->
 <div class="bg0 m-t-23 p-b-140">
     <div class="container">
@@ -31,40 +34,40 @@
                 <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
                     <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
                     <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                    Filter
+                    Lọc
                 </div>
 
                 <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
                     <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
                     <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                    Search
+                    Tìm kiếm
                 </div>
             </div>
 
             <!-- Search product -->
-                <div class="dis-none panel-search w-full p-t-10 p-b-15">
-                    <form method="get" action="/tim-kiem"> 
-                        <div class="bor8 dis-flex p-l-15">
-                            <button id="btnSearch" type="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-                                <i class="zmdi zmdi-search"></i>
-                            </button>
+            <div class="dis-none panel-search w-full p-t-10 p-b-15">
+                <form method="get" action="/tim-kiem">
+                    <div class="bor8 dis-flex p-l-15">
+                        <button id="btnSearch" type="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                            <i class="zmdi zmdi-search"></i>
+                        </button>
 
-                            <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" id="search-product" name="keyword" placeholder="Từ khóa">
-                        </div>
-                    </form>
-                </div>          
+                        <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" id="search-product" name="keyword" placeholder="Từ khóa">
+                    </div>
+                </form>
+            </div>
             <!-- Filter -->
             <div class="dis-none panel-filter w-full p-t-10">
                 <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
                     <div class="filter-col1 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
-                            Sort By
+                            Sắp xếp theo
                         </div>
 
                         <ul>
                             <li class="p-b-6">
                                 <a href="?sort=tat-ca-san-pham" class="filter-link stext-106 trans-04">
-                                    All
+                                    Tất cả
                                 </a>
                             </li>
 
@@ -90,43 +93,43 @@
 
                     <div class="filter-col2 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
-                            Price
+                            Giá
                         </div>
 
                         <ul>
                             <li class="p-b-6">
                                 <a href="?sort=tat-ca-san-pham" class="filter-link stext-106 trans-04">
-                                    All
+                                    Tất cả
                                 </a>
                             </li>
 
                             <li class="p-b-6">
                                 <a href="?page=@Model.Products.PageNumber&sort=price-0-50" class="filter-link stext-106 trans-04">
-                                    $0.00 - $50.00
+                                    Từ $0.00 đến $50.00
                                 </a>
                             </li>
 
                             <li class="p-b-6">
                                 <a href="?page=@Model.Products.PageNumber&sort=price-50-100" class="filter-link stext-106 trans-04">
-                                    $50.00 - $100.00
+                                    Từ $50.00 đến $100.00
                                 </a>
                             </li>
 
                             <li class="p-b-6">
                                 <a href="?page=@Model.Products.PageNumber&sort=price-100-150" class="filter-link stext-106 trans-04">
-                                    $100.00 - $150.00
+                                    Từ $100.00 đến $150.00
                                 </a>
                             </li>
 
                             <li class="p-b-6">
                                 <a href="?page=@Model.Products.PageNumber&sort=price-150-200" class="filter-link stext-106 trans-04">
-                                    $150.00 - $200.00
+                                    Từ $150.00 đến $200.00
                                 </a>
                             </li>
 
                             <li class="p-b-6">
                                 <a href="?page=@Model.Products.PageNumber&sort=price-200" class="filter-link stext-106 trans-04">
-                                    $200.00+
+                                    Từ $200.00+
                                 </a>
                             </li>
                         </ul>
@@ -134,7 +137,7 @@
 
                     <div class="filter-col3 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
-                            Color
+                            Màu
                         </div>
 
                         <ul>
@@ -144,7 +147,7 @@
                                 </span>
 
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Black
+                                    Đen
                                 </a>
                             </li>
 
@@ -154,7 +157,7 @@
                                 </span>
 
                                 <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
-                                    Blue
+                                    Xanh dương
                                 </a>
                             </li>
 
@@ -164,7 +167,7 @@
                                 </span>
 
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Grey
+                                    Xám
                                 </a>
                             </li>
 
@@ -174,7 +177,7 @@
                                 </span>
 
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Green
+                                    Xanh lá cây
                                 </a>
                             </li>
 
@@ -184,7 +187,7 @@
                                 </span>
 
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Red
+                                    Đỏ
                                 </a>
                             </li>
 
@@ -194,7 +197,7 @@
                                 </span>
 
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    White
+                                    Trắng
                                 </a>
                             </li>
                         </ul>
@@ -241,16 +244,13 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="@item.Image" alt="IMG-PRODUCT">
+                                <a href="@url"><img src="@item.Image" alt="IMG-PRODUCT">                </a>
 
-                                <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                    Quick View
-                                </a>
                             </div>
 
                             <div class="block2-txt flex-w flex-t p-t-14">
                                 <div class="block2-txt-child1 flex-col-l ">
-                                    
+
                                     <a href="@url" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                                         @item.Name
                                     </a>
@@ -258,7 +258,7 @@
                                     <span class="stext-105 cl3">
                                         @if (item.PromotionPrice.HasValue)
                                         {
-                                        <strike>@Html.Raw("&#36;")@item.Price</strike> @Html.Raw("&#36;")@item.PromotionPrice
+                                            <strike>@Html.Raw("&#36;")@item.Price</strike> @Html.Raw("&#36;")@item.PromotionPrice
                                         }
                                         else
                                         {
@@ -266,13 +266,6 @@
                                         }
 
                                     </span>
-                                </div>
-
-                                <div class="block2-txt-child2 flex-r p-t-3">
-                                    <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="~/Assets/client/images/icons/icon-heart-01.png" alt="ICON">
-                                        <img class="icon-heart2 dis-block trans-04 ab-t-l" src="~/Assets/client/images/icons/icon-heart-02.png" alt="ICON">
-                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 using OnlineShop.Common;
 using OnlineShop.Model.Models;
 using OnlineShop.Service;
+using OnlineShop.Web.Infrastructure.Extensions;
 using OnlineShop.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,11 @@ namespace OnlineShop.Web.Controllers
     public class ShoppingCartController : Controller
     {
         IProductService _productService;
-        public ShoppingCartController(IProductService productService)
+        IOrderService _orderService;
+        public ShoppingCartController(IOrderService orderService, IProductService productService)
         {
             this._productService = productService;
+            this._orderService = orderService;
         }
         // GET: ShoppingCart
         public ActionResult Index()
@@ -27,6 +30,36 @@ namespace OnlineShop.Web.Controllers
             return View();
         }
 
+        public ActionResult Checkout()
+        {
+            if (Session[CommonConstants.SessionCart] == null)
+                return Redirect("/gio-hang");
+            return View();
+        }
+
+        public JsonResult CreateOrder(string orderViewModel)
+        {
+            var order = new JavaScriptSerializer().Deserialize<OrderViewModel>(orderViewModel);
+            var orderNew = new Order();
+
+            orderNew.UpdateOrder(order);       
+
+            var cart = (List<ShoppingCartViewModel>)Session[CommonConstants.SessionCart];
+            List<OrderDetail> orderDetails = new List<OrderDetail>();
+            foreach (var item in cart)
+            {
+                var detail = new OrderDetail();
+                detail.ProductID = item.ProductId;
+                detail.Quantity = item.Quantity;
+                orderDetails.Add(detail);
+            }
+
+            _orderService.Create(orderNew, orderDetails);
+            return Json(new
+            {
+                status = true
+            });
+        }
         public JsonResult GetAll()
         {
             if (Session[CommonConstants.SessionCart] == null)

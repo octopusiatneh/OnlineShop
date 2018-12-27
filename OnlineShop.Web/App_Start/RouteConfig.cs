@@ -33,6 +33,13 @@ namespace OnlineShop.Web
            );
 
             routes.MapRoute(
+               name: "Checkout",
+               url: "thanh-toan",
+               defaults: new { controller = "ShoppingCart", action = "Checkout", id = UrlParameter.Optional },
+               namespaces: new string[] { "OnlineShop.Web.Controllers" }
+           );
+
+            routes.MapRoute(
                name: "Contact",
                url: "lien-he",
                defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
